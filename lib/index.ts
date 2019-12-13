@@ -231,6 +231,11 @@ export default class PointerTracker {
   }
 
   /**
+   * We need the function to be exposed to circumvent an iOS/webkit bug
+   */
+  public triggerPointerEnd = this._triggerPointerEnd;
+
+  /**
    * Listener for mouse/pointer ends. Bound to the class in the constructor.
    * @param event This will only be a MouseEvent if the browser doesn't support
    * pointer events.

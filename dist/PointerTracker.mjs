@@ -47,6 +47,10 @@ class PointerTracker {
          * of pointers, and in the same order as this.startPointers.
          */
         this.currentPointers = [];
+        /**
+         * We need the function to be exposed to circumvent an iOS/webkit bug
+         */
+        this.triggerPointerEnd = this._triggerPointerEnd;
         const { start = () => true, move = noop, end = noop, } = callbacks;
         this._startCallback = start;
         this._moveCallback = move;
